@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>R.V.S Corporation — Committed to Quality</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy: #0a0e1a;
+  --navy-mid: #111827;
+  --navy-light: #1e2d4a;
+  --gold: #c9973a;
+  --gold-light: #e8c97a;
+  --silver: #8a9ab5;
+  --white: #ffffff;
+  --cream: #f8f6f1;
+  --text: #c8d4e8;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--navy);
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+/* ── BACKGROUND GRID ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(201,151,58,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,151,58,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 72px;
+  background: rgba(10,14,26,0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(201,151,58,0.15);
+  transition: padding 0.3s;
+}
+
+.nav-logo {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+
+.nav-logo-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.1em;
+}
+
+.nav-logo-name span { color: var(--gold); }
+
+.nav-logo-sub {
+  font-size: 9px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-top: 2px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--silver);
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--gold); }
+
+.nav-btn {
+  border: 1px solid var(--gold);
+  color: var(--gold) !important;
+  padding: 10px 26px;
+  border-radius: 4px;
+  transition: background 0.2s !important;
+}
+
+.nav-btn:hover {
+  background: var(--gold) !important;
+  color: var(--navy) !important;
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 140px 72px 80px;
+}
+
+.hero-glow {
+  position: absolute;
+  top: 20%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px; height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,151,58,0.12) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.hero-glow-2 {
+  position: absolute;
+  bottom: -100px; right: -100px;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(30,45,74,0.8) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 28px;
+  animation: fadeUp 0.8s ease both;
+}
+
+.hero-eyebrow::before,
+.hero-eyebrow::after {
+  content: '';
+  width: 40px; height: 1px;
+  background: var(--gold);
+  opacity: 0.5;
+}
+
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(52px, 8vw, 96px);
+  font-weight: 700;
+  line-height: 0.95;
+  margin-bottom: 12px;
+  animation: fadeUp 0.8s 0.15s ease both;
+}
+
+.hero-title .rvs { color: var(--gold); }
+.hero-title .corp { color: var(--white); }
+
+.hero-tagline {
+  font-size: clamp(14px, 2vw, 18px);
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--silver);
+  margin-bottom: 32px;
+  animation: fadeUp 0.8s 0.3s ease both;
+}
+
+.hero-desc {
+  font-size: 17px;
+  color: var(--text);
+  line-height: 1.8;
+  max-width: 580px;
+  margin: 0 auto 48px;
+  font-weight: 300;
+  animation: fadeUp 0.8s 0.45s ease both;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeUp 0.8s 0.6s ease both;
+}
+
+.btn-gold {
+  background: var(--gold);
+  color: var(--navy);
+  padding: 16px 44px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 8px 32px rgba(201,151,58,0.25);
+}
+
+.btn-gold:hover {
+  background: var(--gold-light);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(201,151,58,0.35);
+}
+
+.btn-outline {
+  border: 1px solid rgba(201,151,58,0.4);
+  color: var(--gold);
+  padding: 16px 44px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.btn-outline:hover {
+  border-color: var(--gold);
+  background: rgba(201,151,58,0.08);
+}
+
+/* ── MARQUEE ── */
+.marquee-wrap {
+  border-top: 1px solid rgba(201,151,58,0.15);
+  border-bottom: 1px solid rgba(201,151,58,0.15);
+  padding: 18px 0;
+  overflow: hidden;
+  background: rgba(201,151,58,0.03);
+}
+
+.marquee-track {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 20s linear infinite;
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.7;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ── SERVICES ── */
+.services {
+  padding: 120px 72px;
+  position: relative;
+  z-index: 1;
+}
+
+.services-inner { max-width: 1200px; margin: 0 auto; }
+
+.sec-label {
+  font-size: 11px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.sec-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  color: var(--white);
+}
+
+.sec-title span { color: var(--gold); }
+
+.sec-sub {
+  font-size: 16px;
+  color: var(--silver);
+  max-width: 480px;
+  line-height: 1.7;
+  font-weight: 300;
+  margin-bottom: 64px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+}
+
+.service-card {
+  background: var(--navy-mid);
+  border: 1px solid rgba(201,151,58,0.1);
+  padding: 48px 44px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s, background 0.3s;
+  cursor: default;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 0;
+  background: var(--gold);
+  transition: height 0.4s ease;
+}
+
+.service-card:hover {
+  border-color: rgba(201,151,58,0.3);
+  background: rgba(30,45,74,0.5);
+}
+
+.service-card:hover::before { height: 100%; }
+
+.service-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 56px;
+  font-weight: 700;
+  color: rgba(201,151,58,0.1);
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+.service-icon { font-size: 32px; margin-bottom: 16px; }
+
+.service-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+
+.service-desc {
+  font-size: 14px;
+  color: var(--silver);
+  line-height: 1.75;
+  font-weight: 300;
+}
+
+.service-tag {
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border-bottom: 1px solid rgba(201,151,58,0.3);
+  padding-bottom: 2px;
+}
+
+/* ── VISION MISSION ── */
+.vm-section {
+  background: var(--navy-light);
+  border-top: 1px solid rgba(201,151,58,0.1);
+  border-bottom: 1px solid rgba(201,151,58,0.1);
+  padding: 120px 72px;
+  position: relative;
+  z-index: 1;
+}
+
+.vm-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.vm-header { padding-top: 8px; }
+
+.vm-card {
+  border-left: 1px solid rgba(201,151,58,0.25);
+  padding-left: 36px;
+}
+
+.vm-icon {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.vm-label {
+  font-size: 10px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.vm-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.vm-text {
+  font-size: 14px;
+  color: var(--silver);
+  line-height: 1.85;
+  font-weight: 300;
+}
+
+/* ── VALUES ── */
+.values-section {
+  padding: 120px 72px;
+  position: relative;
+  z-index: 1;
+}
+
+.values-inner { max-width: 1200px; margin: 0 auto; }
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 64px;
+}
+
+.value-card {
+  border: 1px solid rgba(201,151,58,0.12);
+  padding: 36px 28px;
+  border-radius: 2px;
+  text-align: center;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.value-card:hover {
+  border-color: rgba(201,151,58,0.4);
+  transform: translateY(-6px);
+}
+
+.value-icon { font-size: 36px; margin-bottom: 16px; }
+
+.value-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+.value-desc {
+  font-size: 13px;
+  color: var(--silver);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* ── WHY US ── */
+.why-section {
+  background: var(--navy-mid);
+  padding: 120px 72px;
+  border-top: 1px solid rgba(201,151,58,0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.why-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: center;
+}
+
+.why-visual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.why-stat {
+  background: var(--navy-light);
+  border: 1px solid rgba(201,151,58,0.15);
+  padding: 32px 24px;
+  text-align: center;
+  border-radius: 2px;
+}
+
+.why-stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.why-stat-label {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--silver);
+}
+
+.why-points {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-top: 8px;
+}
+
+.why-point {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.why-point-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.why-point-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+
+.why-point-desc {
+  font-size: 14px;
+  color: var(--silver);
+  line-height: 1.65;
+  font-weight: 300;
+}
+
+/* ── CONTACT ── */
+.contact-section {
+  padding: 120px 72px;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: start;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: var(--navy-mid);
+  border: 1px solid rgba(201,151,58,0.2);
+  border-radius: 2px;
+  padding: 14px 18px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  color: var(--white);
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: var(--silver); opacity: 0.5; }
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: var(--gold); }
+.form-group select option { background: var(--navy-mid); }
+.form-group textarea { resize: vertical; min-height: 130px; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+.contact-info { padding-top: 16px; }
+
+.info-block {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  margin-bottom: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(201,151,58,0.1);
+}
+
+.info-block:last-child { border-bottom: none; }
+
+.info-icon {
+  width: 48px; height: 48px;
+  border: 1px solid rgba(201,151,58,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+  color: var(--gold);
+}
+
+.info-label {
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+.info-value {
+  font-size: 15px;
+  color: var(--white);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid rgba(201,151,58,0.15);
+  padding: 60px 72px 32px;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.footer-logo span { color: var(--gold); }
+
+.footer-nav {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+
+.footer-nav a {
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--silver);
+  transition: color 0.2s;
+}
+
+.footer-nav a:hover { color: var(--gold); }
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: var(--silver);
+  opacity: 0.6;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 960px) {
+  nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  .hero { padding: 120px 24px 60px; }
+  .services, .vm-section, .values-section, .why-section, .contact-section { padding: 80px 24px; }
+  footer { padding: 48px 24px 24px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .vm-inner { grid-template-columns: 1fr; gap: 40px; }
+  .values-grid { grid-template-columns: 1fr; }
+  .why-inner { grid-template-columns: 1fr; gap: 48px; }
+  .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+  .form-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-name"><span>R.V.S</span> Corporation</div>
+    <div class="nav-logo-sub">Committed to Quality</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#values">Values</a></li>
+    <li><a href="#why-us">Why Us</a></li>
+    <li><a href="#contact" class="nav-btn">Get in Touch</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow-2"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Committed to Quality</div>
+    <h1 class="hero-title">
+      <span class="rvs">R.V.S</span><br>
+      <span class="corp">Corporation</span>
+    </h1>
+    <p class="hero-tagline">Excellence · Innovation · Integrity</p>
+    <p class="hero-desc">We help businesses grow through expert video editing, strategic marketing analysis, powerful promotions, and professional website development.</p>
+    <div class="hero-btns">
+      <a href="#services" class="btn-gold">Explore Services</a>
+      <a href="#contact" class="btn-outline">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── MARQUEE ── -->
+<div class="marquee-wrap">
+  <span class="marquee-track">
+    Video Editing &nbsp;·&nbsp; Marketing Analysis &nbsp;·&nbsp; Marketing Promotions &nbsp;·&nbsp; Website Development &nbsp;·&nbsp; Excellence &nbsp;·&nbsp; Innovation &nbsp;·&nbsp; Integrity &nbsp;·&nbsp; Committed to Quality &nbsp;·&nbsp; Video Editing &nbsp;·&nbsp; Marketing Analysis &nbsp;·&nbsp; Marketing Promotions &nbsp;·&nbsp; Website Development &nbsp;·&nbsp; Excellence &nbsp;·&nbsp; Innovation &nbsp;·&nbsp; Integrity &nbsp;·&nbsp; Committed to Quality &nbsp;·&nbsp;
+  </span>
+</div>
+
+<!-- ── SERVICES ── -->
+<section class="services" id="services">
+  <div class="services-inner">
+    <div class="reveal">
+      <div class="sec-label">What We Do</div>
+      <h2 class="sec-title">Our <span>Services</span></h2>
+      <p class="sec-sub">We provide comprehensive solutions to help your business stand out, grow, and succeed in a competitive market.</p>
+    </div>
+    <div class="services-grid reveal">
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <div class="service-icon">🎬</div>
+        <div class="service-name">Video Editing</div>
+        <div class="service-desc">Professional video editing services that bring your brand story to life. From promotional videos to social media content, we craft visuals that captivate and convert.</div>
+        <div class="service-tag">Content Creation →</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <div class="service-icon">📊</div>
+        <div class="service-name">Marketing Analysis</div>
+        <div class="service-desc">Data-driven marketing insights to understand your audience, track performance, and make smarter business decisions. We turn data into actionable growth strategies.</div>
+        <div class="service-tag">Strategy & Growth →</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <div class="service-icon">📣</div>
+        <div class="service-name">Marketing Promotions</div>
+        <div class="service-desc">Targeted promotional campaigns that amplify your brand reach. From social media to digital advertising, we create promotions that drive real results and engagement.</div>
+        <div class="service-tag">Brand Amplification →</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">04</div>
+        <div class="service-icon">💻</div>
+        <div class="service-name">Website Development</div>
+        <div class="service-desc">Beautiful, functional, and responsive websites built to represent your brand online. We design and develop sites that look great and perform even better.</div>
+        <div class="service-tag">Digital Presence →</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── VISION MISSION ── -->
+<section class="vm-section" id="about">
+  <div class="vm-inner">
+    <div class="vm-header reveal">
+      <div class="sec-label">Who We Are</div>
+      <h2 class="sec-title" style="font-size: clamp(32px,4vw,48px);">Driven by <span>Purpose</span></h2>
+      <p class="sec-sub" style="margin-bottom:0;">Our vision and mission guide everything we do — from how we work with clients to the quality we deliver.</p>
+    </div>
+    <div class="vm-card reveal">
+      <div class="vm-icon">🔭</div>
+      <div class="vm-label">Our Vision</div>
+      <div class="vm-title">Trusted & Leading</div>
+      <p class="vm-text">To become a trusted and leading corporation recognized for excellence, innovation, and commitment to quality service that improves lives and creates lasting value for the community.</p>
+    </div>
+    <div class="vm-card reveal">
+      <div class="vm-icon">🎯</div>
+      <div class="vm-label">Our Mission</div>
+      <div class="vm-title">Built to Serve</div>
+      <p class="vm-text">RVS Corporation is committed to providing high-quality products and services through integrity, teamwork, and innovation — satisfying our clients, empowering our employees, and contributing positively to economic and community growth.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── VALUES ── -->
+<section class="values-section" id="values">
+  <div class="values-inner">
+    <div class="reveal">
+      <div class="sec-label">Our Foundation</div>
+      <h2 class="sec-title">Core <span>Values</span></h2>
+      <p class="sec-sub">The principles that guide every decision, every project, and every client relationship.</p>
+    </div>
+    <div class="values-grid reveal">
+      <div class="value-card">
+        <div class="value-icon">⚖️</div>
+        <div class="value-name">Integrity</div>
+        <div class="value-desc">We operate with honesty and transparency in every interaction — with clients, partners, and our team.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🏆</div>
+        <div class="value-name">Excellence</div>
+        <div class="value-desc">We hold ourselves to the highest standards, delivering quality work that exceeds expectations every time.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">💡</div>
+        <div class="value-name">Innovation</div>
+        <div class="value-desc">We embrace new ideas and creative approaches to solve problems and deliver cutting-edge solutions.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🤝</div>
+        <div class="value-name">Teamwork</div>
+        <div class="value-desc">We believe in the power of collaboration — working together to achieve more than we could alone.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🌱</div>
+        <div class="value-name">Community</div>
+        <div class="value-desc">We are committed to contributing positively to the communities we serve and the economy at large.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">⭐</div>
+        <div class="value-name">Quality</div>
+        <div class="value-desc">Quality is not just a standard — it's our promise. Every deliverable is crafted with care and precision.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY US ── -->
+<section class="why-section" id="why-us">
+  <div class="why-inner">
+    <div class="why-visual reveal">
+      <div class="why-stat">
+        <div class="why-stat-num">100%</div>
+        <div class="why-stat-label">Commitment</div>
+      </div>
+      <div class="why-stat">
+        <div class="why-stat-num">4+</div>
+        <div class="why-stat-label">Core Services</div>
+      </div>
+      <div class="why-stat">
+        <div class="why-stat-num">∞</div>
+        <div class="why-stat-label">Growth Potential</div>
+      </div>
+      <div class="why-stat">
+        <div class="why-stat-num">1st</div>
+        <div class="why-stat-label">Always Quality</div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="sec-label">Why Choose Us</div>
+      <h2 class="sec-title">Your <span>Success</span><br>Is Our Goal</h2>
+      <div class="why-points">
+        <div class="why-point">
+          <div class="why-point-dot"></div>
+          <div>
+            <div class="why-point-title">All-in-One Business Solutions</div>
+            <div class="why-point-desc">From video content to website development, we handle all your business needs under one roof — saving you time and resources.</div>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-point-dot"></div>
+          <div>
+            <div class="why-point-title">Results-Driven Approach</div>
+            <div class="why-point-desc">Every strategy we craft is backed by data and focused on delivering measurable results for your business growth.</div>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-point-dot"></div>
+          <div>
+            <div class="why-point-title">Dedicated & Reliable Team</div>
+            <div class="why-point-desc">Our team is passionate, skilled, and committed to providing personalized service that puts your business first.</div>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-point-dot"></div>
+          <div>
+            <div class="why-point-title">Committed to Quality</div>
+            <div class="why-point-desc">Quality is at the core of everything we do. We never compromise on the standard of work we deliver to our clients.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="reveal">
+      <div class="sec-label">Work With Us</div>
+      <h2 class="sec-title">Let's <span>Build</span><br>Together</h2>
+      <p class="sec-sub" style="margin-bottom: 48px;">Ready to grow your business? Reach out and let's talk about how RVS Corporation can help you achieve your goals.</p>
+
+      <div class="info-block">
+        <div class="info-icon">✉</div>
+        <div>
+          <div class="info-label">Email</div>
+          <div class="info-value">rvscorporation@gmail.com</div>
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-icon">📞</div>
+        <div>
+          <div class="info-label">Phone / Viber</div>
+          <div class="info-value">+63 XXX XXX XXXX</div>
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-icon">📘</div>
+        <div>
+          <div class="info-label">Facebook</div>
+          <div class="info-value">R.V.S Corporation</div>
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-icon">📍</div>
+        <div>
+          <div class="info-label">Location</div>
+          <div class="info-value">Philippines</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="Juan">
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Dela Cruz">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="juan@email.com">
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="+63 9XX XXX XXXX">
+        </div>
+        <div class="form-group">
+          <label>Service Needed</label>
+          <select>
+            <option value="">Select a service...</option>
+            <option>Video Editing</option>
+            <option>Marketing Analysis</option>
+            <option>Marketing Promotions</option>
+            <option>Website Development</option>
+            <option>Multiple Services</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea placeholder="Tell us about your project, goals, or any questions you have..."></textarea>
+        </div>
+        <button class="btn-gold" style="border:none;cursor:pointer;width:100%;font-family:'Outfit',sans-serif;" onclick="alert('Thank you for reaching out! RVS Corporation will contact you within 24 hours.')">
+          Send Message →
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo"><span>R.V.S</span> Corporation</div>
+    <ul class="footer-nav">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#values">Values</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 R.V.S Corporation. All rights reserved.</span>
+    <span>Committed to Quality · Excellence · Innovation · Integrity</span>
+  </div>
+</footer>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 100);
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(el => observer.observe(el));
+
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('nav');
+  nav.style.padding = window.scrollY > 60 ? '12px 72px' : '20px 72px';
+});
+</script>
+</body>
+</html>
